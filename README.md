@@ -1,6 +1,6 @@
 # g2p2022
 
-This repo has the relevant files to recreate our entry for the SIGMORPHON 2021 G2P shared task.
+This repo has the relevant files to recreate our entry for the SIGMORPHON 2022 G2P shared task.
 
 ## Three systems
 
