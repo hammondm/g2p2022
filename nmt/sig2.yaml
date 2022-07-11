@@ -1,0 +1,69 @@
+
+#where samples will be written
+save_data: run/example
+#where vocab will be written
+src_vocab: run/example.vocab.src
+tgt_vocab: run/example.vocab.tgt
+#prevent overwriting existing files in the folder
+overwrite: False
+
+#corpus opts:
+data:
+    corpus_1:
+        path_src: src-train.txt
+        path_tgt: tgt-train.txt
+    valid:
+        path_src: src-val.txt
+        path_tgt: tgt-val.txt
+
+#train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+#where to save checkpoints
+save_model: run/model
+
+#DONE TO HERE
+
+# General opts
+keep_checkpoint: 50
+save_checkpoint_steps: 200
+average_decay: 0.0005
+seed: 1234
+report_every: 100
+#train_steps: 100000
+train_steps: 1000
+valid_steps: 100
+
+# Optimization
+model_dtype: "fp32"
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+
+# Model
+encoder_type: transformer
+decoder_type: transformer
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]
+#share_decoder_embeddings: true
+#share_embeddings: true
+share_decoder_embeddings: false
+share_embeddings: false
+
+batch_size: 8
+
